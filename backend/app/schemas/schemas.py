@@ -92,3 +92,7 @@ class ItemUpdate(BaseModel):
 
 class RouteItemsUpdate(BaseModel):
     items: List[ItemUpdate]
+    # 微调后总时长需按出行方式重算，缺省与 create_route 一致
+    travel_mode: str = Field(
+        default="driving", pattern="^(driving|walking)$"
+    )
